@@ -7,7 +7,8 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
     console.log('Connected to the MongoDB server.');
 
 
-    // db.collection('Todos').find({
+    // db.collection('Todos').find(
+    // {
     //     _id: new ObjectID('59677cec9e28dc3b535af422')
     // }).toArray().then((docs) => {
     //     console.log('Todos');
@@ -22,12 +23,19 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
     //     console.log('Unable to find Todos.', err);
     // }); 
 
-    db.collection('Users').find({name: 'Froderick The Great'}).toArray().then((docs) => {
-        console.log('USERS FOUND:');
+    // db.collection('Users').find({name: 'Froderick The Great'}).toArray().then((docs) => {
+    //     console.log('USERS FOUND:');
+    //     console.log(JSON.stringify(docs, undefined, 2));
+    // }, (err) => {
+    //     console.log('Unable to find users.', err);
+    // });
+
+    db.collection('Todos').find().toArray().then((docs) => {
+        console.log('YOUR LIST OF TODOS');
         console.log(JSON.stringify(docs, undefined, 2));
     }, (err) => {
-        console.log('Unable to find users.', err);
-    });
+        console.log('Unable to find Todos.', err);
+    }); 
 
     // db.close(); 
 });
