@@ -27,7 +27,7 @@ app.get('/todos', (req, res) => {
   Todo.find().then((todos) => {
     res.send({todos});
   }, (e) => {
-    res.status(500).send(e);  //Student suggest 500 instead of 400 here. Instructor agreed!
+    res.status(500).send(e);
   });
 });
 
@@ -49,26 +49,18 @@ app.get('/todos/:id', (req, res) => {
 });
 
 app.delete('/todos/:id/', (req, res) => {
-  // get the ID - just as we did in the app.get('/todos/:id'... route;
   var id = req.params.id;
-  // validate the ID. If not valid, return 404;
   if (!ObjectID.isValid(id)) {
     return res.status(404).send();
   }
-  // remove todo by ID using the function we just covered in mongoose-remove.js. There are two ways this could go:
   Todo.findByIdAndRemove(id).then((todo) => {
     if (!todo) {
       return res.status(404).send();
     }
-    // success
     res.send({todo});
   }).catch((e) => {
     res.status(400).send();
   });  
-      // if no doc, send 404
-      // if doc, send doc back with 200
-    // error
-      // return 400 with empty body
 });
 
 app.listen(port, () => {
