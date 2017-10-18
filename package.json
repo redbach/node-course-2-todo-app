@@ -1,7 +1,6 @@
 {
-  "name": "node-todo-api",
+  "name": "todo-api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
@@ -9,7 +8,7 @@
     "test-watch": "nodemon --exec 'npm test'"
   },
   "engines": {
-    "node": "v8.1.4"
+    "node": "v8.7.0"
   },
   "author": "cfs",
   "license": "ISC",
@@ -25,9 +24,18 @@
     "validator": "^8.0.0"
   },
   "devDependencies": {
-    "expect": "^1.20.2",
+    "expect": "^21.2.1",
     "mocha": "^3.4.2",
     "nodemon": "^1.11.0",
     "supertest": "^3.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redbach/node-course-2-todo-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/redbach/node-course-2-todo-app/issues"
+  },
+  "homepage": "https://github.com/redbach/node-course-2-todo-app#readme",
+  "description": ""
 }
